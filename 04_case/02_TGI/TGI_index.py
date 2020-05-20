@@ -46,7 +46,7 @@ def get_tgi(data):
     return tgi
 
 if __name__ == '__main__':
-    df = pd.read_excel('/04_case/00_dataset/TGI index data.xlsx')
+    df = pd.read_excel('../00_dataset/TGI index data.xlsx')
     tgi_result = get_tgi(df)
     tgi_result.to_excel('TGI.xlsx', index=0)
 
