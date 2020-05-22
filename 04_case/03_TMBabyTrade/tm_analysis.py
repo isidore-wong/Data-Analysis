@@ -176,11 +176,11 @@ def annual_trend_before_sf(df):
     plt.savefig('images/02_2013-2015年春节前30日销量情况比较.svg')
 
 def find_reason(df):
-    df=df.groupby([pd.Grouper(key='day',freq='D'),'cat1']).sum()['buy_mount']
-    df_2014=df.loc['2014-1-1':'2014-1-16'].unstack()
-    df_2015=df.loc['2015-1-21':].unstack()
-    df=pd.DataFrame({'2014':df_2014.sum(),'2015': df_2015.sum()},index=df_2015.columns)
-    df['yoy']=df.pct_change(axis=1)['2015']*100
+    df = df.groupby([pd.Grouper(key='day',freq='D'),'cat1']).sum()['buy_mount']
+    df_2014 = df.loc['2014-1-1':'2014-1-16'].unstack()
+    df_2015 = df.loc['2015-1-21':].unstack()
+    df = pd.DataFrame({'2014':df_2014.sum(),'2015': df_2015.sum()},index=df_2015.columns)
+    df['yoy'] = df.pct_change(axis=1)['2015']*100
 
     _x=np.arange(len(df.index))
     width=0.35
